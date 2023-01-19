@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 from asyncinotify import Inotify, Mask
 import asyncio
 from nonebot import get_bot, get_driver

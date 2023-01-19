@@ -14,7 +14,7 @@ def dst_chat_log():
 
 
 def process_message(message):
-    messages = [m[32:] for m in message.split("\n") if "Say" in m]
+    messages = [m[32:] for m in message.split("\n") if m[12:17] == "[Say]"]
     return "\n".join(messages)
 
 

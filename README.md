@@ -1,6 +1,6 @@
 # 连接一个饥荒档和一个qq群的桥
 
-虽然大改没人用, 但是还是介绍一下吧
+虽然大概没人用, 但还是介绍一下吧
 
 ## 这个是啥
 
@@ -23,7 +23,8 @@
 
 ### nonebot部分
  - 修改`.env`文件中的参数, 包括其中的qq群号(`QQGROUPID`), 饥荒的聊天日志文件路径(`DSTCHATLOG`), tmux的绝对路径(`TMUXPATH`), 饥荒服务器所在的tmux window的名字(`DSTWINDOWNAME`), 如果在go-cqhttp中使用的不是默认的8080端口, 这里需要加一个端口参数(`PORT`)
- - 准备个python的运行环境, 跑`python bot.py`, 看到缺啥包就装啥包吧
+ - 准备个python的运行环境, 用pip装一下`nonebot`, `nonebot_adapter_onebot`, `asyncinotify`这3个包
+ - 在这个目录跑`python bot.py`, 然后应该就可以了
 
 ## 遇到问题
 

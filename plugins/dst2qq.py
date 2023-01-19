@@ -34,6 +34,8 @@ async def monitor(file_name):
             pre_file_size = file_size
 
             message = process_message(file.read())
+            if message == "":
+                continue
 
             bot = None
             try:

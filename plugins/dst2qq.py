@@ -4,7 +4,13 @@ from asyncinotify import Inotify, Mask
 import asyncio
 from nonebot import get_bot, get_driver
 
-group_id = 681130497
+
+def group_id():
+    return get_driver().config.qqgroupid
+
+
+def dst_chat_log():
+    return get_driver().config.dstchatlog
 
 
 def process_message(message):
@@ -35,7 +41,7 @@ async def monitor(file_name):
             except:
                 pass
             if bot is not None:
-                await bot.send_group_msg(group_id=group_id, message=message)
+                await bot.send_group_msg(group_id=group_id(), message=message)
 
 
 startup = get_driver().server_app.on_event("startup")
@@ -43,4 +49,4 @@ startup = get_driver().server_app.on_event("startup")
 
 @startup
 async def startup_handle():
-    asyncio.create_task(monitor(Path().resolve() / ".." / ".." / "Master" / "server_chat_log.txt"))
+    asyncio.create_task(monitor(dst_chat_log()))

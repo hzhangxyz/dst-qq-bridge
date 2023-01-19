@@ -29,6 +29,7 @@ echo = on_message(rule=group_checker)
 
 @echo.handle()
 async def handle_echo(event: Event):
-    message = f"(QQ群:{group_id()}) {event.sender.nickname}: {event.raw_message}"
+    name = event.sender.card or event.sender.nickname
+    message = f"(QQ群:{group_id()}) {name}: {event.raw_message}"
     command = f"c_announce({repr(message)})"
     await asyncio.create_subprocess_exec(tmux_path(), "send-keys", "-t", dst_window_name(), command, "Enter")

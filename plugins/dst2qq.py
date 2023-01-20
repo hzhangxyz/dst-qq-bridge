@@ -43,6 +43,7 @@ async def monitor(file_name):
                 pass
             if bot is not None:
                 await bot.send_group_msg(group_id=group_id(), message=message)
+                await asyncio.sleep(1)
 
 
 startup = get_driver().server_app.on_event("startup")

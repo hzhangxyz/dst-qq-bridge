@@ -18,7 +18,7 @@ def process_message(message):
 
 
 async def monitor(file_name):
-    with Inotify() as inotify, open(file_name, "rt", encoding="utf-8") as file:
+    with Inotify() as inotify, open(file_name, "rt", encoding="utf-8", errors="replace") as file:
         inotify.add_watch(file_name, Mask.MODIFY)
 
         file.read()  # Read the old data, we do not use them

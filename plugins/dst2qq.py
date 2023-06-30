@@ -46,9 +46,7 @@ async def monitor(file_name):
                 await asyncio.sleep(1)
 
 
-startup = get_driver().server_app.on_event("startup")
-
-
-@startup
 async def startup_handle():
     asyncio.create_task(monitor(dst_chat_log()))
+
+startup = get_driver().on_startup(startup_handle)
